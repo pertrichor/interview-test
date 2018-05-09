@@ -1,4 +1,4 @@
-package test.bluext.interview;
+package test.bluext.interview.collection;
 
 import lombok.Getter;
 import lombok.Setter;
