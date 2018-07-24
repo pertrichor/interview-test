@@ -9,7 +9,7 @@ import lombok.Setter;
  * ThreadLocal实现原理: 每个Thread内部维护了一个ThreadLocalMap , ThreadLocalMap是一个定义在ThreadLocal内部的静态内部类.
  * 当调用ThreadLocal的set或get方法时 , 首先调用Thread.currentThread()获取当前线程. 由于每个线程内部有独立的ThreadLocalMap实例.
  * 所以 , 相当于每个线程获得了一份独立的数据空间.<br/>
- * set(val): 将当前ThreadLocal实例的this作为键 , val作为值保存到当前线程的ThreadLocalMap中.<br/>
+ * set(val): 将当前ThreadLocal实例的this作为键 , val作为值保存到当前线程的ThreadLocalMap中. 由于key是ThreadLocal的实例引用 , 使得每个不同的ThreadLocal实例下保存的数据对于线程本身是独立的.<br/>
  * get()和remove(): 获取/删除 当前线程内部ThreadLocalMap中的值.
  * <p>
  * 示例1. 因为不同线程维护的ThreadLocalMap实例中 , val为同一个对象(指向同一个内存地址) , 所以修改这个对象的成员将影响其他线程.<br/>
